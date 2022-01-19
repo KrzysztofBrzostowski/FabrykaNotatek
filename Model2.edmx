@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBNotatkiModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DBNotatkiModelStoreContainer">
+          <EntitySet Name="NotatkaEncja" EntityType="DBNotatkiModel.Store.NotatkaEncja" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="NotatkaEncja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="dataUtworzenia" Type="datetime" />
+          <Property Name="dataModyfikacji" Type="datetime" />
+          <Property Name="notatka" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBNotatkiModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DBNotatkiEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NotatkaEncjas" EntityType="DBNotatkiModel.NotatkaEncja" />
+        </EntityContainer>
+        <EntityType Name="NotatkaEncja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="dataUtworzenia" Type="DateTime" />
+          <Property Name="dataModyfikacji" Type="DateTime" />
+          <Property Name="notatka" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBNotatkiModelStoreContainer" CdmEntityContainer="DBNotatkiEntities5">
+          <EntitySetMapping Name="NotatkaEncjas">
+            <EntityTypeMapping TypeName="DBNotatkiModel.NotatkaEncja">
+              <MappingFragment StoreEntitySet="NotatkaEncja">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dataUtworzenia" ColumnName="dataUtworzenia" />
+                <ScalarProperty Name="dataModyfikacji" ColumnName="dataModyfikacji" />
+                <ScalarProperty Name="notatka" ColumnName="notatka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model2">
+        <EntityTypeShape EntityType="DBNotatkiModel.NotatkaEncja" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
